@@ -1,0 +1,18 @@
+.heading,
+h2 {
+    text-align: center;
+    background-color: gainsboro;
+    padding: 20px 0px;
+    margin: 10px;
+}
+.pb {
+    width: 100%;
+    display: flex;
+    padding: 20px 0px;
+    flex-direction: column;
+    align-items: center;
+}
+.pb input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
