@@ -21,4 +21,87 @@
     <input bind-disabled="true" type="text" value="Shiva" />
     <input type="text" value="{{ userName }}" />
     <img [src]="imageUrl" alt="typescript vs javascript" height="500px" />
+    <!-- <img src="item-1.jpeg" height="500px" /> -->
+</div>
+
+<!-- class binding -->
+<div [class]="divClass">
+    <h2 [class.headingError]="hasError">There is something wrong</h2>
+    <h2 [ngClass]="classList">Hi , my name is shivam.</h2>
+</div>
+
+<!-- style binding -->
+<div>
+    <h2 [style.font-style]="'bold'">This is bold font</h2>
+    <h2 [ngStyle]="myStyle">Welcome to my world</h2>
+    <h2 [style.color]="isDanger ? 'red' : 'green'">Tomorrow is exam</h2>
+</div>
+
+<!-- event binding -->
+<div class="eb">
+    Enter any thing while open browser's console<input
+        type="text"
+        (keyup)="fieldUpdate()"
+    />
+    Enter any thing you want but i will konw what you enter<input
+        type="text"
+        (keyup)="fieldUpdate2($event)"
+    />
+    Enter any thing but do forget to enter '#'<input
+        type="text"
+        (keyup.shift.#)="fieldUpdate3()"
+    />
+    do not come in this area
+    <div [ngStyle]="box" (mouseenter)="wranning()"></div>
+    do not click to this button any thing can happen
+    <div
+        [ngStyle]="box"
+        [style.background-color]="colorArr[colorCounter]"
+    ></div>
+    <button (click)="tragedy()" class="btn">please click me</button>
+</div>
+
+<!-- #template reference -->
+<div class="tr">
+    <input type="text" #myInput />
+    <button class="btn" #btn (click)="getInputValue(myInput.value, btn)">
+        Get Enter Value
+    </button>
+</div>
+
+<!-- two-way data binding -->
+<div class="twdb">
+    <input type="text" [(ngModel)]="inputText" />
+    {{ "userName : " + inputText }}
+</div>
+
+<!-- structural directives -->
+<!-- ngIf -->
+<h2 *ngIf="true">hello 😉</h2>
+<div *ngIf="displayElement; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+    <h2>Then Block Heading</h2>
+</ng-template>
+<ng-template #elseBlock>
+    <h2>Else Block Heading</h2>
+</ng-template>
+
+<!-- ngSwitch -->
+<div [ngSwitch]="choice">
+    <h2 *ngSwitchCase="'study'">brother's choice is study 👨‍🎓</h2>
+    <h2 *ngSwitchCase="'gaming'">brother's choice is gaming 🎮</h2>
+    <h2 *ngSwitchDefault>brother's choice is something else 😁</h2>
+</div>
+
+<!-- ngFor -->
+<h2 *ngFor="let color of colorForHeading; index as i" [style.color]="color">
+    {{ i + 1 + ". Heading in " + color + " color" }}
+</h2>
+<div [style.display]="'flex'">
+    <div
+        class="crossBox"
+        *ngFor="let i of [1, 2, 3, 4, 5, 6]; even as o"
+        [class.blackBox]="o"
+        [style.border]="border"
+    ></div>
 </div>
